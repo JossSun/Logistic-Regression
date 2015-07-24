@@ -15,14 +15,16 @@ X_test = da[:,1:] #load in colomn 1 and colomn 2
 
 #Fit in the model
 clf = LogisticRegression().fit(X_train,Y_train)
-clf.predict(X_test)
+print "clf.predict(X_test)"
+print clf.predict(X_test)
 '''will get result
 array([ 0.001695,  0.001695,  0.001695,  0.001695,  0.001695,  0.001695,
         0.001695,  0.001695,  0.001695,  0.001695])
 It is a classification result
 '''
 
-clf.coef_
+print "clf.coef_"
+print clf.coef_
 ''' will get result
 array([[ -7.94707579e-01,  -8.70021145e-05],
        [ -7.94707585e-01,   7.43515208e-05],
@@ -37,8 +39,7 @@ array([[ -7.94707579e-01,  -8.70021145e-05],
 a pair of coefficient for each sample
 '''
 
-
-clf2.predict_log_proba(X_test)
+clf.predict_log_proba(X_test)
 ''' will get result
 array([[-2.31170696, -2.31170688, -2.31170696, -2.31176683, -2.3111955 ,
         -2.3111956 , -2.31176682, -2.31150937, -2.3117668 , -2.22498375],
@@ -65,17 +66,21 @@ prediction of probability, uncertain of the meaning
 
 # Bayesian Regression
 from sklearn import linear_model
+print "Bayesian Regression"
+print "clf2.predict(X,Y)"
 clf2 = linear_model.BayesianRidge()
 clf2.fit(X_train,Y_train)
-clf2.predict(X_test)
+print clf2.predict(X_test)
 ''' will get result
 array([ 0.00098657,  0.00090446,  0.00081487,  0.00075955,  0.00044767,
         0.0009525 ,  0.00062719,  0.00133242,  0.000814  ,  0.00095982])
 Prediction of Y
 '''
 
-clf.ceof_
+print "clf2.coef_"
+print clf2.coef_
 ''' will get result
 array([  1.58835994e-03,  -5.02730391e-07])
 '''
+
 
